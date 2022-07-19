@@ -1,0 +1,185 @@
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+.P-cover-image {
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.P-bg-shadow {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    z-index: 4;
+}
+
+.P-information {
+    color: white;
+    position: relative;
+    z-index: 5;
+}
+
+.P-cover-image::before {
+    content: '';
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    z-index: 4;
+    left: 0;
+    top: 0;
+
+}
+
+.P-information ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    counter-reset: my-sec-counter;
+
+}
+
+.P-information ul li {
+    margin: 0 15px;
+    list-style: none;
+    position: relative;
+    padding-left: 30px;
+    padding-bottom: 10px;
+
+}
+
+
+.P-information ul li:before {
+    counter-increment: my-sec-counter;
+    content: counter(my-sec-counter);
+
+    width: 25px;
+    height: 25px;
+    background-color: #449fdb;
+    border-radius: 50%;
+    color: white;
+    position: absolute;
+    left: 0;
+}
+
+.P-information ul li:after {
+    content: '';
+
+    position: absolute;
+
+    width: 0;
+    height: 2px;
+    background-color: rebeccapurple;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 0;
+    transition: 0.3s;
+
+}
+
+
+.P-information ul li:hover:after {
+    width: 100%;
+}
+
+
+.P-information button {
+    width: 250px;
+    height: 42px;
+    background-color: #999999;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
+
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.P-information button:after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    background-color: rgba(255,255,255,0.9);
+    left: -100%;
+    top: 0;
+    transition: 0.3s;
+    transform: skewX(-20deg);
+}
+/*.P-information button:before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    width: 0;*/
+/*    height: 0;*/
+/*    right: 0;*/
+/*    bottom: 0;*/
+/*    background-color: chartreuse;*/
+/*    transition: 0.3s;*/
+/*}*/
+
+.P-information button p{
+    position: relative;
+    z-index: 4;
+}
+
+.P-information button:hover {
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.P-information button:hover:after,.P-information button:hover:before {
+    /*width: 100%;*/
+    /*height: 100%;*/
+
+    left: calc(100% + 50px);
+}

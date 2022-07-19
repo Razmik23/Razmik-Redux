@@ -1,0 +1,151 @@
+* {
+  box-sizing : border-box;
+  margin     : 0;
+  padding    : 0;
+}
+
+.P-admin-section {
+  display     : flex;
+  align-items : flex-start;
+
+}
+
+//.root{
+//  --black: #e7e7e7
+//}
+
+$black : #e7e7e7;
+
+
+.P-sidebar-block {
+  height           : 100vh;
+  width            : 300px;
+  background-color : $black;
+  padding          : 25px 0;
+
+  ul {
+    li {
+
+
+      a {
+        color           : black;
+        font-size       : 20px;
+        text-decoration : none;
+        padding         : 15px 0;
+        transition      : .3s;
+        display         : block;
+        width           : 100%;
+
+        &:hover {
+          background-color : #61dafb;
+          cursor           : pointer;
+        }
+      }
+    }
+  }
+}
+
+header {
+  height           : 100px;
+  width            : 100%;
+  display          : flex;
+  align-items      : center;
+  justify-content  : flex-start;
+  background-color : #f1f1f1;
+  padding          : 10px 25px;
+}
+
+
+.P-user-header-info {
+  display     : flex;
+  align-items : center;
+
+  .P-profile-image {
+    width            : 60px;
+    height           : 60px;
+    border-radius    : 50%;
+    overflow         : hidden;
+    background-color : #999999;
+    margin-right     : 20px;
+  }
+}
+
+
+.P-admin-pages {
+  width : calc(100% - 300px);
+}
+
+
+.P-pages {
+  height           : calc(100vh - 100px);
+  background-color : #999999;
+  padding          : 10px;
+}
+
+.P-dashboard {
+  height : 100%;
+
+}
+
+input.P-input {
+  width         : 100%;
+  height        : 40px;
+  padding       : 0 15px;
+  border        : 1px solid #999999;
+  box-shadow    : 0 0 5px 2px rgba(0, 0, 0, 0.1);
+  outline       : none;
+  border-radius : 10px;
+  margin        : 10px 0;
+}
+
+.P-uploaded-image {
+  width               : 60px;
+  height              : 60px;
+  border-radius       : 10px;
+  background-position : center;
+  background-repeat   : no-repeat;
+  background-size     : cover;
+}
+
+.P-gender-form {
+  display    : flex;
+  margin-top : 10px;
+
+  label {
+    display : flex;
+
+    + label {
+      margin-left : 15px;
+    }
+
+    p {
+      margin-left : 15px;
+    }
+  }
+}
+
+.P-manage-form > p {
+  text-align : left;
+}
+
+.P-manage-form + .P-manage-form {
+  margin-top : 15px;
+}
+
+.P-manage-user {
+  display : flex;
+}
+
+.P-manage-user-box {
+  width   : 50%;
+  padding : 0 15px;
+}
+
+.P-save-changes {
+  margin-top       : 25px;
+  height           : 40px;
+  background-color : #449fdb;
+  outline          : none;
+  border           : none;
+  width: 100%;
+}
