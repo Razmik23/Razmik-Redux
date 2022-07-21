@@ -2,7 +2,7 @@ import React from "react";
 import {useNavigate} from "react-router-dom";
 import {ROUTER_NAMES} from "../../routers";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+//import { useEffect } from "react";
 const Dashboard = ()=>{
 
   const router = useNavigate()
@@ -10,9 +10,7 @@ const Dashboard = ()=>{
   const editUserPage = ()=>{
     router(ROUTER_NAMES.MANAGE_USER)
   }
-useEffect(()=>{
-console.log(profile)
-},[])
+
 
   return <div className='P-dashboard'>
     <div className="P-image" style={{backgroundImage:`url('${profile.profileImage}')`}}></div>
@@ -23,7 +21,7 @@ console.log(profile)
       <p>Position - {profile.position? profile.position: ''}</p>
       <p>Phone Number - {profile.phoneNumber? profile.phoneNumber: ''}</p>
       <p>Email - {profile.email? profile.email+' ': ''}</p>
-      <p>Gender - {profile.male && profile.male === 'on'? 'Male':'Female'}</p>
+      <p>Gender - {profile.gender}</p>
       <p>Date Of Birth - {profile.dateOfBirth? profile.dateOfBirth:''}</p>
       <button onClick={editUserPage}> Edit user</button>
 

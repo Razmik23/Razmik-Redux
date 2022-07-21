@@ -24,6 +24,7 @@ $header :  #fbe7d3;
   background-color : $orange;
   padding          : 25px 0;
   text-align: center;
+  
 
   ul {
     li {
@@ -70,6 +71,9 @@ header {
     overflow         : hidden;
     background-color : #999999;
     margin-right     : 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 
@@ -187,3 +191,83 @@ input.P-input {
   border           : none;
   width: 100%;
 }
+.P-button {
+  margin-top       : 25px;
+  height           : 40px;
+  background-color :$header;
+  outline          : none;
+  border           : none;
+  width: 400px;
+}
+
+.product-image{
+  width: 250px;
+  height: 350px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  &::after{
+
+    content: '';
+    width: 250px;
+    height:350px ;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    z-index: 4;
+    left: 0;
+    top: 0;
+
+  }
+  span{
+    position: absolute;
+    z-index: 5;
+    font-size: 40px;
+    top:0;
+    right: 0;
+    transform: rotate(135deg);
+    color: #999999;
+    &:hover{
+      display: inline-block;
+      color:black;
+    }
+  }
+}
+.P-box{
+  width: 250px;
+  height: 500px;
+  margin:30px;
+  border-bottom:1px solid #999999bf;
+  
+  
+
+    h2{
+      text-align: center;
+      margin:10px;
+
+    }
+    p{
+      margin :10px;
+      font-size: 18px;
+    }
+    &:hover{
+      border-bottom: 2px solid #6160605c;
+      box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+      
+ }
+ }
+.P-dashboard-product{
+  display: flex;
+  flex-wrap: wrap;
+}
+.P-full-dashboard{
+  height: 100%;
+}
+.P-price{
+  display: flex;
+}
+.delete-price{
+  text-decoration: line-through;
+}
+
+

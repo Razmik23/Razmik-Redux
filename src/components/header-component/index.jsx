@@ -8,7 +8,7 @@ const HeaderComponent = () => {
   return <header >
   <div className='P-user-header-info'>
 
-    <div className='P-profile-image'></div>
+    <div className='P-profile-image'  style={{backgroundImage:`url('${profile.profileImage}')`}}></div>
     <div className='P-profile-info'>
       <h3>{profile.firstName? profile.firstName+' ': '-'}
         {profile.lastName? profile.lastName:'-'}</h3>

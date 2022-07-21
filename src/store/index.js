@@ -1,5 +1,5 @@
 import { createStore } from 'redux'
-import GlobalSlice from "../state/global-slice/global-slice";
+//import GlobalSlice from "../state/global-slice/global-slice";
 import rootReducer from "./reducers";
 // import GlobalReducer from "../state/global-data";
 // import rootReducer from './reducers'

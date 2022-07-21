@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import React, { useState} from "react";
+import {useDispatch, } from "react-redux";
 import {profileActions} from "../../state/profile/actions";
 import {useNavigate} from "react-router-dom";
 import {ROUTER_NAMES} from "../../routers";
 
 const ManageUser = () => {
-  const [image, setImage] = useState(null)
+ 
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [user, setUserData] = useState({
@@ -19,7 +19,6 @@ const ManageUser = () => {
     profileImage: '',
     dateOfBirth: null
   })
-  const profile = useSelector(state => state.profileReducer.profile)
 
 
   const uploadImage = (e) => {
@@ -30,7 +29,8 @@ const ManageUser = () => {
       const reader = new FileReader();
       reader.addEventListener("load", () => {
         console.log(reader)
-        setImage(reader.result)
+     
+        setUserData({...user,profileImage:reader.result})
       });
       reader.readAsDataURL(fileList[0]);
     }
@@ -50,17 +50,9 @@ const ManageUser = () => {
   const saveChanges = ()=>{
 
     dispatch({type:profileActions.MANAGE_USER_INFO, payload:user})
-    dispatch({type:profileActions.MANAGE_USER_PROFILE_IMAGE,payload:image})
+    
     navigate(ROUTER_NAMES.DASHBOARD)
-    
-  
-    
-    
   }
-
-  
-
-
   return <div className='P-manage-user'>
 
     <div className="P-manage-user-box">
@@ -86,11 +78,11 @@ const ManageUser = () => {
         <p>Gender</p>
         <div className='P-gender-form'>
           <label>
-            <input onChange={handleRadio} type="radio" name='Male'/>
+            <input onChange={handleRadio} type="radio" name='gender' value = 'Male'/>
             <p>Male</p>
           </label>
           <label>
-            <input onChange={handleRadio} type="radio" name='Female'/>
+            <input onChange={handleRadio} type="radio" name='gender' value = 'Female'/>
             <p>Female</p>
           </label>
         </div>

@@ -31,14 +31,7 @@ const initialState = {
 export const ProfileReducer = (state = initialState, action) => {
   switch (action.type) {
     case profileActions.MANAGE_USER_INFO: {
-     
-
       return {...state, profile:{...state.profile, ...action.payload}}
-      
-    }
-    case profileActions.MANAGE_USER_GENDER: {
-      console.log('MANAGE_USER_GENDER')
-      return {...state}
     }
     case profileActions.MANAGE_USER_PROFILE_IMAGE: {
       console.log('MANAGE_USER_PROFILE_IMAGE')
