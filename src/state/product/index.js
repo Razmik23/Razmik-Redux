@@ -14,21 +14,16 @@ const initialState = {
                     id: index + 1
                   }
                 })
-          
-        return {...state, product: newProduct}
+          return {...state, product: newProduct}
               
         //   return {...state, product:{...state.product, ...action.payload}}
         }
         case productActions.DELETE_PRODUCT: {
-
             const newProduct = state.product.filter(x => x.id !== action.payload)
-           
-      
             return {...state, product: newProduct}
           }
         default: {
             return state
           }
         }
-      
       }

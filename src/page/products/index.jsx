@@ -25,7 +25,7 @@ const Products = ()=>{
         <p>{item.message}</p>
         {item.price>2000? <span className="P-price"><p className="delete-price">{item.price + ' դրամ'}</p><p>{'/'+(item.price-item.price*20/100)+' դրամ' }</p></span>:<p>{item.price + ' դրամ'}</p>}
       </div>
-    }) : <h1>Users List was empty</h1>}
+    }) : <h1>Products List was empty</h1>}
   
   </div>
     <button className = 'P-button' onClick={addProduct}>Add Products</button>

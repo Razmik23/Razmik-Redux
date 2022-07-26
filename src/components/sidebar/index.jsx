@@ -7,6 +7,7 @@ const Sidebar = () => {
     <ul>
       <li><NavLink to={ROUTER_NAMES.DASHBOARD}> Dashboard</NavLink></li>
       <li><NavLink to={ROUTER_NAMES.PRODUCTS}> Products</NavLink></li>
+      <li><NavLink to={ROUTER_NAMES.LOGIN_SETTINGS}> Login Settings</NavLink></li>
     </ul>
   </div>
 }

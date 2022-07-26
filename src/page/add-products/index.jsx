@@ -34,17 +34,10 @@ const AddProducts = ()=>{
       }
     }
     const saveChanges = ()=>{
-      
-      
       dispatch({type:productActions.ADD_PRODUCT_INFO, payload:productData})
-
       navigate(ROUTER_NAMES.PRODUCTS)
       }
       
-    
-
-
-
   return <div className="Add-Product">
     <div className='P-manage-form'>
         <p>Product Name</p>
