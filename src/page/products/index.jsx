@@ -3,13 +3,15 @@ import {ROUTER_NAMES} from "../../routers";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { productActions } from "../../state/product/actions";
+import { useState } from "react";
 
 const Products = ()=>{
   const dispatch = useDispatch()
-  const router = useNavigate()
+  const router = useNavigate() 
   const addProduct = ()=>{
     router(ROUTER_NAMES.ADD_PRODUCT)
   }
+
   const product = useSelector(state => state.productReducer.product)
   const deleteProduct = (id)=>{
     dispatch({type:productActions.DELETE_PRODUCT, payload:id})

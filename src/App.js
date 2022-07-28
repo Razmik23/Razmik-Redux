@@ -11,6 +11,7 @@ import AddProducts from "./page/add-products";
 import ManageUser from "./page/manage-user";
 import LoginUser from './page/login-user'
 import LoginSettings from './page/login-settings';
+import NewImages from './page/new-images';
 
 function App() {
   const navigate = useNavigate()
@@ -38,6 +39,7 @@ function App() {
               <Route path={ROUTER_NAMES.LOGIN_SETTINGS} element={<LoginSettings/>}></Route>
               <Route path={ROUTER_NAMES.ADD_PRODUCT} element={<AddProducts/>}></Route>
               <Route path={ROUTER_NAMES.MANAGE_USER} element={<ManageUser/>}></Route>
+              <Route path={ROUTER_NAMES.NEW_IMAGES} element={<NewImages/>}></Route>
             </Routes>
           </div>
         </div>
