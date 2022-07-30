@@ -4,6 +4,8 @@ import { productActions } from "../../state/product/actions";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ROUTER_NAMES } from "../../routers";
+import { addProductData } from "../../platform/api/auth";
+
 
 const AddProducts = ()=>{
   const navigate = useNavigate()
@@ -33,10 +35,16 @@ const AddProducts = ()=>{
         reader.readAsDataURL(fileList[0]);
       }
     }
-    const saveChanges = ()=>{
-      dispatch({type:productActions.ADD_PRODUCT_INFO, payload:productData})
-      navigate(ROUTER_NAMES.PRODUCTS)
+    const saveChanges = async () => {
+      const result = await addProductData(productData)
+      // const result = await DeleteUser('62e2c2796f047803e8aee6cf')
+      console.log(result)
+      if(result.data._id){
+      
+        navigate(ROUTER_NAMES.PRODUCTS)
       }
+    }
+  
       
   return <div className="Add-Product">
     <div className='P-manage-form'>

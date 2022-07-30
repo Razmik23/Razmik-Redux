@@ -6,7 +6,7 @@ const HeaderComponent = () => {
   const profile = useSelector(state => state.profileReducer.profile)
  
   const logoutClick = ()=>{
-    localStorage.setItem('token_admin', " ")
+    localStorage.removeItem('token_admin')
     window.location.reload()
     
   }

@@ -9,13 +9,9 @@ const NewImages = () => {
     getImagesList()
   }, [])
 
- 
-
   const getImagesList = async () => {
     setIsLoading(true)
-
-   
-    const result = await fetch('https://jsonplaceholder.typicode.com/photos', {
+  const result = await fetch('https://jsonplaceholder.typicode.com/photos', {
       method: 'GET'
     })
       .then(data => {
