@@ -1,8 +1,10 @@
-import React, { useState} from "react";
+import React, { useEffect, useState} from "react";
 import {useDispatch, } from "react-redux";
 import {profileActions} from "../../state/profile/actions";
 import {useNavigate} from "react-router-dom";
 import {ROUTER_NAMES} from "../../routers";
+import { useSelector } from "react-redux";
+import { EditUser } from "../../platform/api/auth";
 
 const ManageUser = () => {
  
@@ -19,9 +21,13 @@ const ManageUser = () => {
     profileImage: '',
     dateOfBirth: null
   })
+  const profile = useSelector(state => state.profileReducer.profile)
+  useEffect(() =>{
+      setUserData(profile)
 
-
-  const uploadImage = (e) => {
+  },[profile])
+  
+const uploadImage = (e) => {
     const element = e.currentTarget
     const fileList = element.files;
     console.log(element.files)
@@ -35,23 +41,21 @@ const ManageUser = () => {
       reader.readAsDataURL(fileList[0]);
     }
   }
+  const manageUser = async ()=>{
+    const result = await EditUser(profile._id, user)
+    if(result){
+    navigate(ROUTER_NAMES.DASHBOARD)
+    }
 
+  }
   const handleChange = (e) => {
     setUserData({...user, [e.target.name]: e.target.value})
-    
   }
   const handleRadio =(e)=>{
-
     setUserData({...user,[e.target.name]:e.target.value})
-
   }
-  
-
   const saveChanges = ()=>{
-
-    dispatch({type:profileActions.MANAGE_USER_INFO, payload:user})
-    
-    navigate(ROUTER_NAMES.DASHBOARD)
+    manageUser()
   }
   return <div className='P-manage-user'>
 
@@ -59,30 +63,30 @@ const ManageUser = () => {
       <div className='P-manage-form'>
         <p>First Name</p>
         <label>
-          <input onChange={handleChange} name={'firstName'} className='P-input' type="text" placeholder='First Name'/>
+          <input value = {user.firstName} onChange={handleChange} name={'firstName'} className='P-input' type="text" placeholder='First Name'/>
         </label>
       </div>
       <div className='P-manage-form'>
         <p>Last Name</p>
         <label>
-          <input onChange={handleChange} name={'lastName'} className='P-input' type="text" placeholder='Last Name'/>
+          <input value = {user.lastName} onChange={handleChange} name={'lastName'} className='P-input' type="text" placeholder='Last Name'/>
         </label>
       </div>
       <div className='P-manage-form'>
         <p>Age</p>
         <label>
-          <input onChange={handleChange} name={'age'} className='P-input' type="number" placeholder='Age'/>
+          <input value = {user.age} onChange={handleChange} name={'age'} className='P-input' type="number" placeholder='Age'/>
         </label>
       </div>
       <div className='P-manage-form'>
         <p>Gender</p>
         <div className='P-gender-form'>
           <label>
-            <input onChange={handleRadio} type="radio" name='gender' value = 'Male'/>
+            <input onChange={handleChange} type="radio" name='gender' value = 'Male' checked={user.gender==='Male'}/>
             <p>Male</p>
           </label>
           <label>
-            <input onChange={handleRadio} type="radio" name='gender' value = 'Female'/>
+            <input onChange={handleChange} type="radio" name='gender' value = 'Female' checked={user.gender==='Female'}/>
             <p>Female</p>
           </label>
         </div>
@@ -92,26 +96,25 @@ const ManageUser = () => {
       <div className='P-manage-form'>
         <p>Position</p>
         <label>
-          <input onChange={handleChange} name={'position'} className='P-input' type="text" placeholder='Position'/>
+          <input value={user.position} onChange={handleChange} name={'position'} className='P-input' type="text" placeholder='Position'/>
         </label>
       </div>
       <div className='P-manage-form'>
         <p>Email</p>
         <label>
-          <input onChange={handleChange} name='email' className='P-input' type="text" placeholder='Email'/>
+          <input value={user.email} onChange={handleChange} name='email' className='P-input' type="text" placeholder='Email'/>
         </label>
       </div>
       <div className='P-manage-form'>
         <p>Phone Number</p>
         <label>
-          <input onChange={handleChange} name={'phoneNumber'} className='P-input' type="number"
-                 placeholder='Phone Number'/>
+          <input value={user.phoneNumber} onChange={handleChange} name={'phoneNumber'} className='P-input' type="number" placeholder='Phone Number'/>
         </label>
       </div>
       <div className='P-manage-form'>
         <p>Date of Birth</p>
         <label>
-          <input onChange={handleChange} className='P-input' type="date" placeholder='Date of Birth' name = {'dateOfBirth'}/>
+          <input value={user.dateOfBirth} onChange={handleChange} className='P-input' type="date" placeholder='Date of Birth' name = {'dateOfBirth'}/>
         </label>
       </div>
       <div className='P-manage-form'>

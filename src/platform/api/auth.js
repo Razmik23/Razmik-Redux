@@ -27,3 +27,7 @@ export const GetProductsList = () => {
 export const DeleteProduct = (id) =>{
   return axios.delete(`${ApiUrl}productList/${id}`,)
 }
+export const EditUser = (id,data) =>{
+  delete data._id
+  return axios.put(`${ApiUrl}userRegistration/${id}`,data)
+}

@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {useNavigate} from "react-router-dom";
 import {ROUTER_NAMES} from "../../routers";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { GetMyAccount } from "../../platform/api/auth";
+import { profileActions } from "../../state/profile/actions";
 //import { useEffect } from "react";
 const Dashboard = ()=>{
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    getMyAccount()
+
+  },[])
+  const getMyAccount = async () => {
+    const login = localStorage.getItem('token_admin')
+
+    const result = await GetMyAccount(login)
+    if (result && result.data) {
+      dispatch({type:profileActions.MANAGE_USER_INFO, payload:result.data})
+    }
+  }
 
   const router = useNavigate()
   const profile = useSelector(state => state.profileReducer.profile)
